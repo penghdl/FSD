@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript"> 
+        function clickLike() { 
+            if (localStorage.like) { 
+                localStorage.like = Number(localStorage.like) + 1; 
+            } else { 
+                localStorage.like = 1; 
+            } 
+            document.getElementById("like").innerHTML = localStorage.like; 
+        } 
+        
+        function clickUnLike() { 
+            if (localStorage.unLike) { 
+                localStorage.unLike = Number(localStorage.unLike) + 1; 
+            } else { 
+                localStorage.unLike = 1; 
+            } 
+            document.getElementById("unLike").innerHTML = localStorage.unLike; 
+        } 
+            
+        function clearCount() {
+            localStorage.like = 0; 
+            document.getElementById("like").innerHTML = localStorage.like; localStorage.unLike = 0; 
+            document.getElementById("unLike").innerHTML = localStorage.unLike;
+        }
+
+        function clickPlay() {
+            document.getElementById("video").play();
+        }
+
+        function clickStop() {
+            document.getElementById("video").pause();
+        }
+    </script>
+</head>
+
+<body>
+    <!--<button value='Like' onClick="clickLike()">Like</button>-->
+    <!--<button value='UnLike' onClick="clickUnLike()">Unlike</button>-->
+    <div class="row" style="padding:40px;padding-bottom: 0px">
+        <div class="col-md-6" 
+        style="background-color:yellow; padding-top:40px; padding-left: 0px; padding-right: 20px; padding-bottom: 10px">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="embed-responsive embed-responsive-4by3"> 
+                        <video id="video" autoplay>
+                            <source src="sample.mp4" type="video/mp4"> Your browser does not support HTML5 video.
+                        </video> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3" 
+        style="background-color:yellow; padding-top:40px; padding-left: 0px; padding-right: 20px; padding-bottom: 10px">
+            <p>this is a line for text</p>
+            <p>this is a line for text</p>
+            <p>this is a line for text</p>
+            <p>this is a line for text</p>
+            <p>this is a line for text</p>
+        </div>
+    </div>
+    <div class="row" style="padding:40px;padding-top:0px">
+        <div class="col-md-9" 
+        style="background-color:yellow; padding-top:0px; padding-left: 60px; padding-right: 20px; padding-bottom: 10px">
+ 
+            <i style="float:left" class="fas fa-play-circle" onClick="clickPlay()"></i>
+            <div id='play' style="float:left"><span>&nbsp;</span></div> 
+
+            <i style="float:left" class="fas fa-stop-circle" onClick="clickStop()"></i>
+            <div id='stop' style="float:left"><span>&nbsp;</span></div>
+
+           <i style="float:left" class="fas fa-thumbs-up" onClick="clickLike()"></i>
+            <div id='like' style="float:left"><span>&nbsp;</span></div>
+
+            <i style="float:left" class="fas fa-thumbs-down" onClick="clickUnLike()"></i>
+            <div id='unLike' style="float:left"><span>&nbsp;</span></div>
+
+             <i style="float:left" class="fas fa-sync-alt" onClick="clearCount()"></i>
+            <div id='clearCount' style="float:left"><span>&nbsp;</span></div>
+
+        </div>
+    </div>
+</body>
+
+</html>
